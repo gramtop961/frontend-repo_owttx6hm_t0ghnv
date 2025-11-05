@@ -1,28 +1,56 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import InvestmentHighlights from './components/InvestmentHighlights';
+import Facilities from './components/Facilities';
+import Legality from './components/Legality';
+import PricingCTA from './components/PricingCTA';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Header() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <header className="sticky top-0 z-40 w-full border-b border-emerald-100/60 bg-white/80 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <a href="#" className="flex items-center gap-2">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600 font-bold text-white">N</span>
+          <span className="font-semibold text-gray-900">Nazra Cikahuripan</span>
+        </a>
+        <nav className="hidden items-center gap-6 text-sm text-gray-700 sm:flex">
+          <a href="#highlights" className="hover:text-emerald-700">Highlights</a>
+          <a href="#pricing" className="hover:text-emerald-700">Pricing</a>
+          <a href="#legality" className="hover:text-emerald-700">Legality</a>
+        </nav>
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default App
+function Footer() {
+  return (
+    <footer className="border-t border-emerald-100/60 bg-white py-10">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-sm text-gray-600">© {new Date().getFullYear()} Nazra Cikahuripan. All rights reserved.</p>
+          <div className="flex items-center gap-4 text-sm text-gray-600">
+            <a className="hover:text-emerald-700" href="#highlights">Highlights</a>
+            <a className="hover:text-emerald-700" href="#pricing">Pricing</a>
+            <a className="hover:text-emerald-700" href="#legality">Legality</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900">
+      <Header />
+      <main>
+        <Hero />
+        <InvestmentHighlights />
+        <Facilities />
+        <PricingCTA />
+        <Legality />
+      </main>
+      <Footer />
+    </div>
+  );
+}
